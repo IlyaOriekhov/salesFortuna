@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Card, CardContent } from "./components/card";
 
-// Testimonial data for mapping
 const testimonials = [
   {
     id: 1,
@@ -50,7 +49,7 @@ export const Box = (): React.JSX.Element => {
     );
   };
 
-  // Функція для отримання правильного порядку карток
+  // функція для отримання правильного порядку карток
   const getOrderedTestimonials = () => {
     const ordered = [];
     for (let i = 0; i < testimonials.length; i++) {
@@ -64,29 +63,26 @@ export const Box = (): React.JSX.Element => {
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden">
-      {/* Background Image */}
+      {/* Background  */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/back.png')",
         }}
       >
-        {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-black/10"></div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        {/* Main Heading - H1 with accent font */}
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black drop-shadow-2xl [font-family:'Space_Grotesk',Helvetica] leading-tight">
             Voices of Success with Sales Fortuna
           </h1>
         </div>
 
-        {/* Testimonials Grid */}
         <div className="max-w-6xl mx-auto relative">
-          {/* Navigation Arrows */}
+          {/* Navigation */}
           <button
             onClick={handlePrevious}
             className="absolute left-0  top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-10 flex items-center justify-center ml-[-68px]"
@@ -125,7 +121,7 @@ export const Box = (): React.JSX.Element => {
             </svg>
           </button>
 
-          {/* Cards Grid */}
+          {/* Cards  */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500">
             {orderedTestimonials.map((testimonial, index) => (
               <Card
@@ -133,7 +129,6 @@ export const Box = (): React.JSX.Element => {
                 className="h-full bg-white rounded-2xl border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group"
               >
                 <CardContent className="p-8 h-full flex flex-col">
-                  {/* Company Logo */}
                   {testimonial.logo && (
                     <div className="mb-6 flex justify-center h-16 items-center">
                       <img
@@ -157,7 +152,6 @@ export const Box = (): React.JSX.Element => {
                     </div>
                   </div>
 
-                  {/* Author Info */}
                   <div className="flex items-center mt-auto pt-4 border-t border-gray-100">
                     <img
                       src={testimonial.avatar}
@@ -183,7 +177,6 @@ export const Box = (): React.JSX.Element => {
             ))}
           </div>
 
-          {/* Pagination Dots */}
           <div className="flex justify-center mt-8 gap-3">
             {testimonials.map((_, index) => (
               <div
@@ -203,7 +196,6 @@ export const Box = (): React.JSX.Element => {
   );
 };
 
-// Додаємо головний компонент App
 const App: React.FC = () => {
   return <Box />;
 };
